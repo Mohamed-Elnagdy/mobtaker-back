@@ -7,7 +7,7 @@ const registerRouter = require('./routes/registerRoutes');
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DataBase = 'mongodb+srv://abdallahelshayeb515:Abdallah21Elshayeb@cluster0.deh2e6c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
 app.use(cors());
 app.use(express.json());
 
@@ -15,7 +15,7 @@ app.use(courseRouter);
 app.use(registerRouter);
 
 mongoose
-  .connect(DataBase)
+  .connect(process.env.DATABASE_CONNECTION)
   .then(() => {
     console.log('connected :))');
   })
