@@ -6,6 +6,7 @@ const registerRouter = require('./routes/registerRoutes');
 
 require('dotenv').config();
 const app = express();
+const PORT = process.env.PORT || 3000
 app.use(cors());
 app.use(express.json());
 
@@ -21,6 +22,6 @@ mongoose
     console.log(err);
   });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server working at ${process.env.PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server working at ${PORT}`);
 });
